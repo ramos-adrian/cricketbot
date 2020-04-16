@@ -4,7 +4,6 @@ import os
 import telegram.bot
 from telegram import ParseMode
 from telegram.ext import messagequeue as mq, Defaults
-from telegram.utils.request import Request
 
 import settings
 from updates import ball, toss, setball, settoss
@@ -22,7 +21,6 @@ def add_events():
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 token = os.environ.get('TOKEN')
 settings.owners = os.environ.get('OWNER_ID').split(",")
-request = Request(con_pool_size=8)
 defaults = Defaults(parse_mode=ParseMode.HTML)
 upd = telegram.ext.updater.Updater(token=token, use_context=True, defaults=defaults)
 add_events()

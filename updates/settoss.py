@@ -18,7 +18,7 @@ def setresult(u, c):
     if str(u.effective_user.id) not in settings.owners:
         return
     if len(c.args) < 1:
-        return _.reply(usage_settoss)
+        return u.message.reply_text(usage_settoss)
     tosstype = c.args[0].lower()
     result = VALID_RESULTS.get(tosstype)
     if result:
